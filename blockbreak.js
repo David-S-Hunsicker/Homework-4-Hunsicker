@@ -99,7 +99,7 @@ $(function() {
   });
 
 //  Q.load(['blockbreak.png','blockbreak.json'], function() {
- Q.load(['blockbreak.png', 'fire.mp3', 'jump.mp3', 'coin.mp3'], function() {
+ Q.load(['blockbreak.png' ], function() {///////'fire.mp3', 'jump.mp3', 'coin.mp3'
     // Q.compileSheets('blockbreak.png','blockbreak.json');  
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
  Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
