@@ -195,11 +195,11 @@ $(function() {
 		//experimental code here
 		var scoreboard = stage.insert(new Q.UI.Container
 			({
-				fill: "green", border: 3, x: 10, y:5
+				fill: "green", border: 3, x: 20, y:5
 			}));
 		stage.insert(new Q.UI.Text
 			({
-				label:"Score:", color:"white", x:10, y:10
+				label:"Score:", color:"white", x:20, y:10
 			}), scoreboard);
 		///////////////////
       var blockCount=0;
