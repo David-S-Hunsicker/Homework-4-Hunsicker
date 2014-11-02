@@ -201,6 +201,10 @@ $(function() {
 			({
 				label:"Score:", color:"white", x:30, y:10
 			}), scoreboard);
+		var points = stage.insert(new Q.UI.Text
+		({
+			label: "0", color green, x: 45, y:10
+		}),scoreboard);
 		///////////////////
       var blockCount=0;
       for(var x=0;x<6;x++) {
