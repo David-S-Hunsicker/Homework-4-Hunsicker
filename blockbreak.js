@@ -107,7 +107,7 @@ $(function() {
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
  Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
  Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });      
-    Q.scene('win',new Q.Scene(function(stage) {
+ Q.scene('win',new Q.Scene(function(stage) {
   var container = stage.insert(new Q.UI.Container({
   fill: "black",
   border: 5,
@@ -192,11 +192,20 @@ $(function() {
  Q.scene('game',new Q.Scene(function(stage) {
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
-
+		//experimental code here
+		var scoreboard = stage.insert(new Q.UI.Container
+			({
+				fill: "gray", border: 3, x: Q.width, y:20
+			}));
+		stage.insert(new Q.UI.Test
+			({
+				label:"Score:", color:"white", x:5, y:10
+			}), container);
+		///////////////////
       var blockCount=0;
       for(var x=0;x<6;x++) {
         for(var y=0;y<5;y++) {
-          stage.insert(new Q.Block({ x: x*50+35, y: y*30+10 }));
+          stage.insert(new Q.Block({ x: x*50+35, y: y*30+20 }));
           blockCount++;
         }
       }
