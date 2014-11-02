@@ -109,7 +109,7 @@ $(function() {
  Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });      
     Q.scene('win',new Q.Scene(function(stage) {
   var container = stage.insert(new Q.UI.Container({
-  fill: "blue",
+  fill: "black",
   border: 5,
   y: 60,
   x: Q.width/2 }));
