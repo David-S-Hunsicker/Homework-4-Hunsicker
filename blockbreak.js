@@ -99,37 +99,113 @@ $(function() {
   });
 
 //  Q.load(['blockbreak.png','blockbreak.json'], function() {
-  Q.load(['blockbreak.png'], function() {
-      
+  [11:54:17 AM] Kelsey r: Q.load(['blockbreak.png', 'fire.mp3', 'jump.mp3', 'coin.mp3'], function() {
     // Q.compileSheets('blockbreak.png','blockbreak.json');  
-	Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 20, sy: 0, sx: 0 });
-	Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 20, sy: 20, sx: 0 });
-	Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });		 		 
-    Q.scene('game',new Q.Scene(function(stage) {
+ Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
+ Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
+ Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });      
+    Q.scene('win',new Q.Scene(function(stage) {
+  var container = stage.insert(new Q.UI.Container({
+  fill: "black",
+  border: 5,
+  y: 60,
+  x: Q.width/2 }));
+   
+   stage.insert(new Q.UI.Text({ 
+  label: "You Win!!!!!",
+  color: "white",
+  x: 5,
+  y: 20 }),container);
+   
+   container.fit(50,50);
+   
+   stage.insert(new Q.UI.Button({
+  label: "Play Again",
+  y: 200,
+  x: Q.width/2,
+  fill: "white",
+  border: 5,
+  shadow: 10,
+  shadowColor: "rgba(0,0,0,0.5)",}, function() {
+  Q.clearStages();
+  Q.stageScene('game');
+      }));
+ 
+ }));
+ Q.scene('lose',new Q.Scene(function(stage) {
+  var container = stage.insert(new Q.UI.Container({
+  fill: "black",
+  border: 5,
+  y: 60,
+  x: Q.width/2 }));
+   
+   stage.insert(new Q.UI.Text({ 
+  label: "You Lose!!!!!",
+  color: "white",
+  x: 5,
+  y: 20 }),container);
+   
+   container.fit(50,50);
+   
+   stage.insert(new Q.UI.Button({
+  label: "Play Again",
+  y: 200,
+  x: Q.width/2,
+  fill: "white",
+  border: 5,
+  shadow: 10,
+  shadowColor: "rgba(0,0,0,0.5)",}, function() {
+  Q.clearStages();
+  Q.stageScene('game');
+      }));
+ 
+ }));
+ Q.scene('start',new Q.Scene(function(stage) {
+      var container = stage.insert(new Q.UI.Container({
+  fill: "black",
+  border: 5,
+  y: 60,
+  x: Q.width/2 }));
+   
+   stage.insert(new Q.UI.Text({ 
+  label: " BLOCK BREAKER \n  David Hunsicker \n Directions: Use the left \n and  right arrow keys \n to move the paddle.",
+  color: "white",
+  x: 5,
+  y: 20 }),container);
+   
+   container.fit(50,50);
+   
+   stage.insert(new Q.UI.Button({
+  label: "Play Block Breaker",
+  y: 200,
+  x: Q.width/2,
+  fill: "white",
+  border: 5,
+  shadow: 10,
+  shadowColor: "rgba(0,0,0,0.5)",}, function() {
+  Q.stageScene('game');
+      }));
+    })); 
+ Q.scene('game',new Q.Scene(function(stage) {
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
 
       var blockCount=0;
       for(var x=0;x<6;x++) {
         for(var y=0;y<5;y++) {
-          stage.insert(new Q.Block({ x: x*50+35, y: y*30 }));
+          stage.insert(new Q.Block({ x: x*50+35, y: y*30+10 }));
           blockCount++;
         }
       }
       stage.on('removeBlock',function() {
         blockCount--;
+  Q.audio.play('coin.mp3');
         if(blockCount == 0) {
-          Q.stageScene('game');
+          Q.stageScene('win');
         }
       });
 
     }));
-      
-   
-      
-      
-      
-         Q.stageScene('start');
-      
-  });  
+    Q.stageScene('start');
+  });
 });
