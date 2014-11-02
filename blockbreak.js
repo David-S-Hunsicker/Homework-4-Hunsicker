@@ -60,9 +60,11 @@ $(function() {
 		  if(p.x < 0) { 
 			p.x = 0;
 			p.dx = 1;
+			Q.audio.play('hit.mp3');
 		  } else if(p.x > Q.width - p.w) { 
 			p.dx = -1;
 			p.x = Q.width - p.w;
+			Q.audio.play('hit.mp3');
 		  }
 
 		  if(p.y < 0) {
@@ -77,6 +79,7 @@ $(function() {
 	collision: function(col) {                // collision method
 		if (col.obj.isA("Paddle")) {
 //			alert("collision with paddle");
+			Q.audio.play('fire.mp3');
 			this.p.dy = -1;
 		} else if (col.obj.isA("Block")) {
 //			alert("collision with block");
@@ -99,7 +102,7 @@ $(function() {
   });
 
 //  Q.load(['blockbreak.png','blockbreak.json'], function() {
- Q.load(['blockbreak.png' ], function() {///////'fire.mp3', 'jump.mp3', 'coin.mp3'
+ Q.load(['blockbreak.png','fire.mp3','hit.mp3','heart.mp3' ], function() {
     // Q.compileSheets('blockbreak.png','blockbreak.json');  
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
  Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
@@ -199,7 +202,7 @@ $(function() {
       }
       stage.on('removeBlock',function() {
         blockCount--;
-  Q.audio.play('coin.mp3');
+  Q.audio.play('heart.mp3');
         if(blockCount == 0) {
           Q.stageScene('win');
         }
