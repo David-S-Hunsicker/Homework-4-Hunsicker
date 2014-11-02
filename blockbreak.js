@@ -195,7 +195,7 @@ $(function() {
 		///////////////////////experimental code here
 		var scoreboard = stage.insert(new Q.UI.Container
 			({
-				fill: "gray", border: 3, x: 20, y:0
+				fill: "gray", border: 3, x: 35, y:0
 			}));
 		stage.insert(new Q.UI.Text
 			({
@@ -203,7 +203,7 @@ $(function() {
 			}), scoreboard);
 		var points = stage.insert(new Q.UI.Text
 		({
-			label: "0", color: "white", x: 65, y:10
+			label: "0", color: "white", x: 80, y:10
 		}),scoreboard);
 		
 		//scoreboard.fit(Q.width, 20);
