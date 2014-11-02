@@ -195,7 +195,7 @@ $(function() {
 		//experimental code here
 		var scoreboard = stage.insert(new Q.UI.Container
 			({
-				fill: "gray", border: 3, x: Q.width, y:20
+				fill: "gray", border: 3, x: 10, y:5
 			}));
 		stage.insert(new Q.UI.Text
 			({
@@ -205,7 +205,7 @@ $(function() {
       var blockCount=0;
       for(var x=0;x<6;x++) {
         for(var y=0;y<5;y++) {
-          stage.insert(new Q.Block({ x: x*50+35, y: y*30+20 }));
+          stage.insert(new Q.Block({ x: x*50+35, y: y*30+45 }));
           blockCount++;
         }
       }
