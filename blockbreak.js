@@ -109,14 +109,14 @@ $(function() {
  Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });      
     Q.scene('win',new Q.Scene(function(stage) {
   var container = stage.insert(new Q.UI.Container({
-  fill: "black",
+  fill: "blue",
   border: 5,
   y: 60,
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: "You Win!!!!!",
-  color: "white",
+  label: "Think you're pretty special, dont you?",
+  color: "blue",
   x: 5,
   y: 20 }),container);
    
@@ -126,7 +126,7 @@ $(function() {
   label: "Play Again",
   y: 200,
   x: Q.width/2,
-  fill: "white",
+  fill: "blue",
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
@@ -143,8 +143,8 @@ $(function() {
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: "You Lose!!!!!",
-  color: "white",
+  label: "You could have had a V8",
+  color: "blue",
   x: 5,
   y: 20 }),container);
    
@@ -154,7 +154,7 @@ $(function() {
   label: "Play Again",
   y: 200,
   x: Q.width/2,
-  fill: "white",
+  fill: "blue",
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
