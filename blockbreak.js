@@ -192,14 +192,14 @@ $(function() {
  Q.scene('game',new Q.Scene(function(stage) {
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
-		//experimental code here
+		///////////////////////experimental code here
 		var scoreboard = stage.insert(new Q.UI.Container
 			({
-				fill: "green", border: 3, x: 10, y:5
+				fill: "green", border: 3, x: 5, y:5
 			}));
 		stage.insert(new Q.UI.Text
 			({
-				label:"Score:", color:"white", x:30, y:10
+				label:"Score:", color:"white", x:0, y:10
 			}), scoreboard);
 		var points = stage.insert(new Q.UI.Text
 		({
