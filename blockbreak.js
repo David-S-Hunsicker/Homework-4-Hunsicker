@@ -199,7 +199,7 @@ $(function() {
 			}));
 		stage.insert(new Q.UI.Text
 			({
-				label:"Score:", color:"white", x:20, y:10
+				label:"Score:", color:"white", x:30, y:10
 			}), scoreboard);
 		///////////////////
       var blockCount=0;
