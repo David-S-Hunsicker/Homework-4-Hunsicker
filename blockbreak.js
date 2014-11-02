@@ -71,7 +71,7 @@ $(function() {
 			p.y = 0;
 			p.dy = 1;
 		  } else if(p.y > Q.height) { 
-			Q.stageScene('game');
+			Q.stageScene('lose');
 		  }
 	  });
     },
@@ -207,10 +207,7 @@ $(function() {
           Q.stageScene('win');
         }
       });
-		if(paddle.x>ball.x)
-		{
-		Q.stageScene('lose');
-		}
+		
     }));
     Q.stageScene('start');
   });
