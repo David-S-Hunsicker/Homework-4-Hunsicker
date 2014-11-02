@@ -195,7 +195,7 @@ $(function() {
 		///////////////////////experimental code here
 		var scoreboard = stage.insert(new Q.UI.Container
 			({
-				fill: "gray", border: 3, x: 20, y:50
+				fill: "gray", border: 3, x: 20, y:0
 			}));
 		stage.insert(new Q.UI.Text
 			({
@@ -206,7 +206,7 @@ $(function() {
 			label: "0", color: "white", x: 65, y:10
 		}),scoreboard);
 		
-		scoreboard.fit(Q.width, 20);
+		//scoreboard.fit(Q.width, 20);
 		///////////////////
       var blockCount=0;
       for(var x=0;x<6;x++) {
