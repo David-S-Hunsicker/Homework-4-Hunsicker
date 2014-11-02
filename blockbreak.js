@@ -197,7 +197,7 @@ $(function() {
 			({
 				fill: "gray", border: 3, x: Q.width, y:20
 			}));
-		stage.insert(new Q.UI.Test
+		stage.insert(new Q.UI.Text
 			({
 				label:"Score:", color:"white", x:5, y:10
 			}), container);
