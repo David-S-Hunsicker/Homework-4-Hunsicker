@@ -105,7 +105,7 @@ $(function() {
   border: 5,
   y: 60,
   x: Q.width/2 }));
-      
+    }
       
 //      Q.scene('start', new Q.Scene(function(stage){
 //    //put all relevent start screen stuff here
