@@ -205,7 +205,7 @@ $(function() {
 		var points = stage.insert(new Q.UI.Text
 		({
 			
-			label: 0, color: "white", x: 80, y:10
+			label: "0", color: "white", x: 80, y:10
 		}),scoreboard);
 		
 		//scoreboard.fit(Q.width, 20);
