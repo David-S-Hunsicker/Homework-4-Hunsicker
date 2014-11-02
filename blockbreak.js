@@ -195,7 +195,7 @@ $(function() {
 		///////////////////////experimental code here
 		var scoreboard = stage.insert(new Q.UI.Container
 			({
-				fill: "green", border: 3, x: 5, y:5
+				fill: "green", border: 3, x: 20, y:5
 			}));
 		stage.insert(new Q.UI.Text
 			({
