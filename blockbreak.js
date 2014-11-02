@@ -143,7 +143,7 @@ $(function() {
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: "You could have had a V8",
+  label: "you coulda had a V8",
   color: "blue",
   x: 5,
   y: 20 }),container);
