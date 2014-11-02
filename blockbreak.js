@@ -193,7 +193,7 @@ $(function() {
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
 		///////////////////////experimental code here
-		var gamePoints =0;
+		
 		var scoreboard = stage.insert(new Q.UI.Container
 			({
 				fill: "gray", border: 3, x: 20, y:0
@@ -205,7 +205,7 @@ $(function() {
 		var points = stage.insert(new Q.UI.Text
 		({
 			
-			label: gamePoints, color: "white", x: 80, y:10
+			label: 0, color: "white", x: 80, y:10
 		}),scoreboard);
 		
 		//scoreboard.fit(Q.width, 20);
