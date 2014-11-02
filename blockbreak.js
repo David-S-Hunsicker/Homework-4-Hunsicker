@@ -1,7 +1,7 @@
 $(function() {
-  var Q = window.Q = Quintus()
-                     .include('Input,Sprites,Scenes')
-                     .setup();
+  var Q = window.Q = Quintus({audioSupported: [ 'wav','mp3','ogg' ]})
+                     .include('Input,Sprites,Scenes,UI,Touch')
+                     .setup().Touch().enableSound();
 
   Q.input.keyboardControls();
   Q.input.touchControls({ 
@@ -100,6 +100,88 @@ $(function() {
 
 //  Q.load(['blockbreak.png','blockbreak.json'], function() {
   Q.load(['blockbreak.png'], function() {
+      Q.scene('win',new Q.Scene(function(stage) {
+  var container = stage.insert(new Q.UI.Container({
+  fill: "black",
+  border: 5,
+  y: 60,
+  x: Q.width/2 }));
+   
+   stage.insert(new Q.UI.Text({ 
+  label: "You Win!!!!!",
+  color: "white",
+  x: 5,
+  y: 20 }),container);
+   
+   container.fit(50,50);
+   
+   stage.insert(new Q.UI.Button({
+  label: "Play Again",
+  y: 200,
+  x: Q.width/2,
+  fill: "white",
+  border: 5,
+  shadow: 10,
+  shadowColor: "rgba(0,0,0,0.5)",}, function() {
+  Q.clearStages();
+  Q.stageScene('game');
+      }));
+ 
+ }));
+ Q.scene('lose',new Q.Scene(function(stage) {
+  var container = stage.insert(new Q.UI.Container({
+  fill: "black",
+  border: 5,
+  y: 60,
+  x: Q.width/2 }));
+   
+   stage.insert(new Q.UI.Text({ 
+  label: "You Lose!!!!!",
+  color: "white",
+  x: 5,
+  y: 20 }),container);
+   
+   container.fit(50,50);
+   
+   stage.insert(new Q.UI.Button({
+  label: "Play Again",
+  y: 200,
+  x: Q.width/2,
+  fill: "white",
+  border: 5,
+  shadow: 10,
+  shadowColor: "rgba(0,0,0,0.5)",}, function() {
+  Q.clearStages();
+  Q.stageScene('game');
+      }));
+ 
+ }));
+ Q.scene('start',new Q.Scene(function(stage) {
+      var container = stage.insert(new Q.UI.Container({
+  fill: "black",
+  border: 5,
+  y: 60,
+  x: Q.width/2 }));
+   
+   stage.insert(new Q.UI.Text({ 
+  label: " BLOCK BREAKER \n By: Kelsey Rauenzahn \n Directions: Use the left \n and  right arrow keys \n to move the paddle.",
+  color: "white",
+  x: 5,
+  y: 20 }),container);
+   
+   container.fit(50,50);
+   
+   stage.insert(new Q.UI.Button({
+  label: "Play Block Breaker",
+  y: 200,
+  x: Q.width/2,
+  fill: "white",
+  border: 5,
+  shadow: 10,
+  shadowColor: "rgba(0,0,0,0.5)",}, function() {
+  Q.stageScene('game');
+      }));
+    }));
     // Q.compileSheets('blockbreak.png','blockbreak.json');  
 	Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 20, sy: 0, sx: 0 });
 	Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 20, sy: 20, sx: 0 });
