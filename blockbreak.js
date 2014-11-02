@@ -207,7 +207,10 @@ $(function() {
           Q.stageScene('win');
         }
       });
-
+		if(paddle.x>ball.x)
+		{
+		Q.stageScene('lose');
+		}
     }));
     Q.stageScene('start');
   });
