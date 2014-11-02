@@ -200,7 +200,7 @@ $(function() {
 		stage.insert(new Q.UI.Text
 			({
 				label:"Score:", color:"white", x:5, y:10
-			}), container);
+			}), scoreboard);
 		///////////////////
       var blockCount=0;
       for(var x=0;x<6;x++) {
