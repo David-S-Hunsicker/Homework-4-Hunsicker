@@ -124,7 +124,8 @@ $(function() {
       });
 
     }));
-      //////////////////////////////
+         Q.stageScene('game');
+       //////////////////////////////
       Q.scene('win',new Q.Scene(function(stage) {
   var container = stage.insert(new Q.UI.Container({
   fill: "black",
@@ -208,6 +209,6 @@ $(function() {
       }));
     }));
       /////////////////////////
-    Q.stageScene('game');
+
   });  
 });
