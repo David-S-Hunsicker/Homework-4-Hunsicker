@@ -192,6 +192,7 @@ $(function() {
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
   Q.reset({ score: 0, lives: 3});
   Q.stageScene('game');
+  Q.stageScene('hud');
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
