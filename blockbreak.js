@@ -111,26 +111,25 @@ $(function() {
  }
   });
   
-  Q.UI.Text.extend("Score", 
-  {	init: function() 
-		{
-			this._super({
-				label: "score: 0",
-				align: "left",
-				color: "white",
-				x: 35,
-				y: Q.height -10,
-				weight: "normal",
-				size:18
-			});
-			Q.state.on("change.score",this,"score");
-		},
-		
-		score: function(score)
-		{
-			this.p.label = "score: " + score;
-		}
-	});
+  Q.UI.Text.extend("Score",{
+    init: function() {
+      this._super({
+        label: "score: 0",
+        align: "left",
+		color: "white",
+        x: 50,
+        y: Q.height - 10,
+        weight: "normal",
+        size:18
+      });
+
+      Q.state.on("change.score",this,"score");
+    },
+
+    score: function(score) {
+      this.p.label = "score: " + score;
+    }
+  });
   
   //Q.Sprite.extend golden block
 
