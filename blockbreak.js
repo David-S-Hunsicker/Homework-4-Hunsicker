@@ -2,7 +2,7 @@ $(function() {
   var Q = window.Q = Quintus({audioSupported: [ 'wav','mp3','ogg' ]})
                      .include('Input,Sprites,Scenes,UI,Touch,Audio')
                      .setup().touch().enableSound();
-	var points = 5;
+
   Q.input.keyboardControls();
   Q.input.touchControls({ 
             controls:  [ ['left','<' ],[],[],[],['right','>' ] ]
@@ -101,9 +101,8 @@ $(function() {
     }
   });
 
-//  Q.load(['blockbreak.png','blockbreak.json'], function() {
- Q.load(['blockbreak.png','fire.mp3','hit.mp3','heart.mp3' ], function() {
-    // Q.compileSheets('blockbreak.png','blockbreak.json');  
+
+ Q.load(['blockbreak.png','fire.mp3','hit.mp3','heart.mp3' ], function() { 
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
  Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
  Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });      
@@ -190,8 +189,12 @@ $(function() {
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
+Q.reset({ score: 0, lives: 3, level: 1});
+
+ //stage teh hud scene
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
+	  Q.reset({ score: 0, lives: 2 });
 		///////////////////////experimental code here
 		
 		var scoreboard = stage.insert(new Q.UI.Container
@@ -205,7 +208,7 @@ $(function() {
 		var points = stage.insert(new Q.UI.Text
 		({
 			
-			label: points, color: "white", x: 80, y:10
+			label: "0", color: "white", x: 80, y:10
 		}),scoreboard);
 		
 		//scoreboard.fit(Q.width, 20);
