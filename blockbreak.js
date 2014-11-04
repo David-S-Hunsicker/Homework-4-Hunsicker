@@ -156,7 +156,7 @@ $(function() {
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: "You Win!!!!!",
+  label: "think you're \n pretty special, \n don't you?",
   color: "white",
   x: 5,
   y: 20 }),container);
@@ -164,10 +164,10 @@ $(function() {
    container.fit(50,50);
    
    stage.insert(new Q.UI.Button({
-  label: "Play Again",
+  label: "I'm bad at games",
   y: 200,
   x: Q.width/2,
-  fill: "white",
+  fill: "blue",
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
@@ -184,7 +184,7 @@ $(function() {
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: "You Lose!!!!!",
+  label: "You're bad, \n big surprise",
   color: "white",
   x: 5,
   y: 20 }),container);
@@ -192,10 +192,10 @@ $(function() {
    container.fit(50,50);
    
    stage.insert(new Q.UI.Button({
-  label: "Play Again",
+  label: "Fail Again",
   y: 200,
   x: Q.width/2,
-  fill: "white",
+  fill: "blue",
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
