@@ -358,16 +358,30 @@ $(function() {
         }
       } */
 	  /////////////new block laying for loops
-	  for(var y=0;y<5;y++) {
-          stage.insert(new Q.Block1({ x: 85, y: y*30+10 }));
+	  for(var x=0;x<6;x++) {//block
+          stage.insert(new Q.Block({ x: x*50+35, y: 40 }));
           blockCount++;
-        } 
-	  for(var y=0;y<5;y++) {
-          stage.insert(new Q.Block1({ x: 2*50+35, y: y*30+10 }));
+      } 
+	  for(var x=0;x<6;x++) {//block1
+          stage.insert(new Q.Block1({ x: x*50+35, y: 70 }));
           blockCount++;
-        }
-	  
-	  
+      } 
+	  for(var x=0;x<6;x++) {
+          stage.insert(new Q.Block2({ x: x*50+35, y: 100 }));
+          blockCount++;
+      } 
+	  for(var x=0;x<6;x++) {
+          stage.insert(new Q.Block3({ x: x*50+35, y: 130 }));
+          blockCount++;
+      } 
+	  for(var x=0;x<6;x++) {
+          stage.insert(new Q.Block4({ x: x*50+35, y: 160 }));
+          blockCount++;
+      } 
+	  for(var x=0;x<6;x++) {
+          stage.insert(new Q.Block5({ x: x*50+35, y: 190 }));
+          blockCount++;
+      } 
 	  ////////////////////
       stage.on('removeBlock',function() {
         blockCount--;
