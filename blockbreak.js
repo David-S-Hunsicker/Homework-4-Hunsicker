@@ -92,19 +92,23 @@ $(function() {
 	}
   });
 
-  Q.Sprite.extend("Block", {
+ Q.Sprite.extend("Block", {
     init: function(props) {
-      this._super(_(props).extend({ sheet: 'block'}));
+      this._super(_(props).extend({ 
+  sheet: 'block3'   
+   }));
       this.on('collision',function(ball) { 
-        this.destroy();
+         // Increment the score.
+  this.destroy();
+  //increase score by 10
+  //Q.state.inc("score", 10);
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');
       });
     },
-	destoyed: function()
-		{
-		Q.state.inc("score",10);
-		}	
+ destroyed: function() {
+      Q.state.inc("score",100);
+ }
   });
   
   Q.UI.Text.extend("Score", 
@@ -243,12 +247,7 @@ $(function() {
       });
 		
     }));
-   
-   
-   
-   
-Q.scene('hud',function(stage) 
-{
+Q.scene('hud',function(stage) {
     stage.insert(new Q.Score()); 
 }, {stage: 1});
 
