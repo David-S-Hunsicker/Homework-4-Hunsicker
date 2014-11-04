@@ -53,7 +53,9 @@ $(function() {
    this.on('step', function(dt) {      // On every step, call this anonymous function
     var p = this.p;
     Q.stage().collide(this);   // tell stage to run collisions on this sprite
-
+	//an experiement with increasing speed of the ball as time goes on
+	p.speed=(p.speed*1.01);
+	//remove above line if it breaks it
     p.x += p.dx * p.speed * dt;
     p.y += p.dy * p.speed * dt;
 
@@ -359,27 +361,27 @@ $(function() {
       } */
 	  /////////////new block laying for loops
 	  for(var x=0;x<6;x++) {//block
-          stage.insert(new Q.Block({ x: x*50+35, y: 40 }));
+          stage.insert(new Q.Block5({ x: x*50+35, y: 40 }));
           blockCount++;
       } 
 	  for(var x=0;x<6;x++) {//block1
-          stage.insert(new Q.Block1({ x: x*50+35, y: 70 }));
+          stage.insert(new Q.Block4({ x: x*50+35, y: 70 }));
           blockCount++;
       } 
 	  for(var x=0;x<6;x++) {
-          stage.insert(new Q.Block2({ x: x*50+35, y: 100 }));
+          stage.insert(new Q.Block3({ x: x*50+35, y: 100 }));
           blockCount++;
       } 
 	  for(var x=0;x<6;x++) {
-          stage.insert(new Q.Block3({ x: x*50+35, y: 130 }));
+          stage.insert(new Q.Block2({ x: x*50+35, y: 130 }));
           blockCount++;
       } 
 	  for(var x=0;x<6;x++) {
-          stage.insert(new Q.Block4({ x: x*50+35, y: 160 }));
+          stage.insert(new Q.Block1({ x: x*50+35, y: 160 }));
           blockCount++;
       } 
 	  for(var x=0;x<6;x++) {
-          stage.insert(new Q.Block5({ x: x*50+35, y: 190 }));
+          stage.insert(new Q.Block({ x: x*50+35, y: 190 }));
           blockCount++;
       } 
 	  ////////////////////
