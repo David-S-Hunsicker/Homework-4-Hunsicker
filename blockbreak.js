@@ -103,7 +103,7 @@ $(function() {
     },
 	destoyed: function()
 		{
-		Q.state.inc("score", 10);
+		Q.state.inc("score",10);
 		}	
   });
   
@@ -224,36 +224,9 @@ $(function() {
  
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
-		///////////////////////experimental code here
+	
+	
 		
-		/* var scoreboard = stage.insert(new Q.UI.Container
-			({
-				fill: "gray", border: 3, x: 20, y:0
-			})); */
-		//on score.incease
-		/* stage.insert(new Q.UI.Text
-			({
-				label:"Score:", color:"white", x:20, y:10
-			}), scoreboard);
-			 */
-		/* var points = stage.insert(new Q.UI.Text
-		({
-			label: "0", color: "white", x: 80, y:10
-		}),scoreboard); */
-		
-		//update teh score
-		Q.state.on("change.score", function()
-		{
-		var points = stage.insert(new Q.UI.Text
-			({
-			//console.log(points are being updated);
-			label: Q.state("score"), color: "white", x: 80, y:10
-			
-			}),scoreboard);
-		});
-		
-		//scoreboard.fit(Q.width, 20);
-		///////////////////
       var blockCount=0;
       for(var x=0;x<6;x++) {
         for(var y=0;y<5;y++) {
@@ -274,7 +247,7 @@ $(function() {
    
    
    
-Q.scene("hud",function(stage) 
+Q.scene('hud',function(stage) 
 {
     stage.insert(new Q.Score()); 
 }, {stage: 1});
