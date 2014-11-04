@@ -226,7 +226,7 @@ $(function() {
 			
 			label: Q.score, color: "white", x: 80, y:10
 			
-			}),scoreboard;
+			}),scoreboard);
 		});
 		
 		//scoreboard.fit(Q.width, 20);
