@@ -246,9 +246,10 @@ $(function() {
       });
 		
     }));
-Q.scene('hud',function(stage) {
-    stage.insert(new Q.Score()); 
-}, {stage: 1});
+ Q.scene('hud',function(stage) {
+  stage.insert(new Q.Score());
+  //stage.insert(new Q.Lives());
+ }, { stage: 1 });
 
 
 
