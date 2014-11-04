@@ -223,8 +223,8 @@ $(function() {
 		{
 		var points = stage.insert(new Q.UI.Text
 			({
-			var score = Q.state.score;
-			label: score, color: "white", x: 80, y:10
+			
+			label: Q.score, color: "white", x: 80, y:10
 			
 			}),scoreboard;
 		});
