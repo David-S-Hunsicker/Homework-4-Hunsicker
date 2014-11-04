@@ -277,7 +277,7 @@ $(function() {
 Q.scene("hud",function(stage) 
 {
     stage.insert(new Q.Score()); 
-}, {stage 1});
+}, {stage: 1});
 
 
 
