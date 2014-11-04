@@ -28,8 +28,8 @@ $(function() {
       } else if(Q.inputs['right']) {
         this.p.x += dt * this.p.speed;
       }
-      if(this.p.x < 0) { 
-        this.p.x = 0+this.p.w/2;//trying to fix this
+      if(this.p.x < 20) { 
+        this.p.x = 20;//trying to fix this
       } else if(this.p.x > Q.width - this.p.w) { 
         this.p.x = Q.width - this.p.w;
       }
