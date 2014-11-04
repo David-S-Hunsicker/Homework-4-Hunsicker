@@ -185,7 +185,7 @@ $(function() {
    
    stage.insert(new Q.UI.Text({ 
   label: "You're bad, \n big surprise",
-  color: "white",
+  color: "red",
   x: 5,
   y: 20 }),container);
    
