@@ -196,7 +196,7 @@ $(function() {
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
- 
+	
  
  
       stage.insert(new Q.Paddle());
@@ -224,7 +224,7 @@ $(function() {
 		var points = stage.insert(new Q.UI.Text
 			({
 			
-			label: Q.score, color: "white", x: 80, y:10
+			label: Q.state("score"), color: "white", x: 80, y:10
 			
 			}),scoreboard);
 		});
