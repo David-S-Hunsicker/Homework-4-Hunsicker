@@ -97,10 +97,8 @@ $(function() {
   sheet: 'block'   
    }));
       this.on('collision',function(ball) { 
-         // Increment the score.
+        
   this.destroy();
-  //increase score by 10
-  //Q.state.inc("score", 10);
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');
       });
@@ -109,6 +107,31 @@ $(function() {
       Q.state.inc("score",100);
  }
   });
+  
+  
+  
+  Q.Sprite.extend("Block1", {
+    init: function(props) {
+      this._super(_(props).extend({ 
+  sheet: 'block1'   
+   }));
+      this.on('collision',function(ball) { 
+        
+  this.destroy();
+        ball.p.dy *= -1;
+        Q.stage().trigger('removeBlock');
+      });
+    },
+ destroyed: function() {
+      Q.state.inc("score",100);
+ }
+  });
+  
+  
+  
+  
+  
+  
   
    Q.UI.Text.extend("Score",{
     init: function() {
@@ -137,7 +160,7 @@ $(function() {
    
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
  Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
- //Q.sheet("block1", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 40 });
+ Q.sheet("block1", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 40 });
  //Q.sheet("block2", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 80 });
  //Q.sheet("block3", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 120 });
  //Q.sheet("block4", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 160 });
@@ -244,7 +267,7 @@ $(function() {
       var blockCount=0;
       for(var x=0;x<6;x++) {
         for(var y=0;y<5;y++) {
-          stage.insert(new Q.Block({ x: x*50+35, y: y*30+10 }));
+          stage.insert(new Q.Block1({ x: x*50+35, y: y*30+10 }));
           blockCount++;
         }
       }
