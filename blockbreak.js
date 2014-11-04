@@ -63,7 +63,7 @@ $(function() {
    Q.audio.play('fire.mp3');
     } else if(p.x > Q.width - p.w/2) { 
    p.dx = -1;
-   p.x = Q.width - p.w;
+   p.x = Q.width - p.w/2;
    Q.audio.play('fire.mp3');
     }
 
