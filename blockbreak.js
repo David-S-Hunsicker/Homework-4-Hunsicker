@@ -12,7 +12,7 @@ $(function() {
     init: function(p) {
       this._super(p, {
         sheet: 'paddle',
-        speed: 200,
+        speed: 300,
         x: 0,
       });
       this.p.x = Q.width/2 - this.p.w/2;
@@ -54,7 +54,7 @@ $(function() {
     var p = this.p;
     Q.stage().collide(this);   // tell stage to run collisions on this sprite
 	//an experiement with increasing speed of the ball as time goes on
-	p.speed=(p.speed*1.001);
+	p.speed=(p.speed*1.0005);
 	//remove above line if it breaks it
     p.x += p.dx * p.speed * dt;
     p.y += p.dy * p.speed * dt;
