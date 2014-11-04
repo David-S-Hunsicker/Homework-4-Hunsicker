@@ -2,7 +2,7 @@ $(function() {
   var Q = window.Q = Quintus({audioSupported: [ 'wav','mp3','ogg' ]})
                      .include('Input,Sprites,Scenes,UI,Touch,Audio')
                      .setup().touch().enableSound();
-
+	var points = 5;
   Q.input.keyboardControls();
   Q.input.touchControls({ 
             controls:  [ ['left','<' ],[],[],[],['right','>' ] ]
@@ -205,7 +205,7 @@ $(function() {
 		var points = stage.insert(new Q.UI.Text
 		({
 			
-			label: "0", color: "white", x: 80, y:10
+			label: points, color: "white", x: 80, y:10
 		}),scoreboard);
 		
 		//scoreboard.fit(Q.width, 20);
