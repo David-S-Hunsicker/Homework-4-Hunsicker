@@ -189,7 +189,7 @@ $(function() {
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
-Q.reset({ score: 0, lives: 3, level: 1});
+Q.reset({ score: 0, lives: 3});
 
  //stage teh hud scene
       stage.insert(new Q.Paddle());
