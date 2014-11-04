@@ -116,7 +116,7 @@ $(function() {
 				color: "white",
 				x: 35,
 				y: Q.height -10,
-				weight: "normal"
+				weight: "normal",
 				size:18
 			});
 			Q.state.on("change.score",this,"score");
