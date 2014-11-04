@@ -99,7 +99,7 @@ $(function() {
         this.destroy();
 		//increase score by 10
 		Q.state.inc("score", 10);
-		//console.log(points have been increased);
+		console.log(Q.score);
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');
       });
