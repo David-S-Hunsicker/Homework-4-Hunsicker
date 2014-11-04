@@ -132,9 +132,9 @@ $(function() {
   
  
 
-//  Q.load(['blockbreak.png','blockbreak.json'], function() {
+
   Q.load(['blockbreak.png', 'fire.mp3', 'hit.mp3', 'heart.mp3'], function() {
-    // Q.compileSheets('blockbreak.png','blockbreak.json');  
+   
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
  Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
  //Q.sheet("block1", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 40 });
@@ -142,11 +142,12 @@ $(function() {
  //Q.sheet("block3", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 120 });
  //Q.sheet("block4", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 160 });
  //Q.sheet("block5", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 200 });
- Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });      
+ Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });    
+ 
  Q.scene('hud',function(stage) {
   stage.insert(new Q.Score());
   //stage.insert(new Q.Lives());
-  //stage.insert(new Q.Level());
+ 
  }, { stage: 1 });
     Q.scene('win',new Q.Scene(function(stage) {
   var container = stage.insert(new Q.UI.Container({
