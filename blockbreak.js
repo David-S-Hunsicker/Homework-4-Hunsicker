@@ -97,15 +97,38 @@ $(function() {
       this._super(_(props).extend({ sheet: 'block'}));
       this.on('collision',function(ball) { 
         this.destroy();
-		//increase score by 10
-		Q.state.inc("score", 10);
-		console.log(Q.score);
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');
       });
-    }
+    },
+	destoyed: function()
+		{
+		Q.state.inc("score", 10);
+		}	
   });
-//Q.Sprite.extend golden block
+  
+  Q.UI.Text.extend("Score", 
+  {	init: function() 
+		{
+			this._super({
+				label: "score: 0",
+				align: "left",
+				color: "white",
+				x: 35,
+				y: Q.height -10,
+				weight: "normal"
+				size:18
+			});
+			Q.state.on("change.score",this,"score");
+		},
+		
+		score: function(score)
+		{
+			this.p.label = "score: " + score;
+		}
+	});
+  
+  //Q.Sprite.extend golden block
 
  Q.load(['blockbreak.png','fire.mp3','hit.mp3','heart.mp3' ], function() { 
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
