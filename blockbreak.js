@@ -87,7 +87,13 @@ $(function() {
    col.obj.destroy();
    this.p.dy *= -1;
    Q.stage().trigger('removeBlock');
+  }else if (col.obj.isA("Block1")) {
+//   alert("collision with block");
+   col.obj.destroy();
+   this.p.dy *= -1;
+   Q.stage().trigger('removeBlock');
   }
+  
  }
   });
 
@@ -258,11 +264,11 @@ $(function() {
  Q.scene('game',new Q.Scene(function(stage) {
       Q.state.reset({ score: 0, lives: 3, level: 1 });
     
-    // Add the hud in 
+    
    Q.stageScene("hud"); 
    stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
- //  Q.stageScene('hud',3, Q('Block'));
+ 
 
       var blockCount=0;
       for(var x=0;x<6;x++) {
