@@ -92,6 +92,26 @@ $(function() {
    col.obj.destroy();
    this.p.dy *= -1;
    Q.stage().trigger('removeBlock');
+  }else if (col.obj.isA("Block2")) {
+//   alert("collision with block");
+   col.obj.destroy();
+   this.p.dy *= -1;
+   Q.stage().trigger('removeBlock');
+  }else if (col.obj.isA("Block3")) {
+//   alert("collision with block");
+   col.obj.destroy();
+   this.p.dy *= -1;
+   Q.stage().trigger('removeBlock');
+  }else if (col.obj.isA("Block4")) {
+//   alert("collision with block");
+   col.obj.destroy();
+   this.p.dy *= -1;
+   Q.stage().trigger('removeBlock');
+  }else if (col.obj.isA("Block5")) {
+//   alert("collision with block");
+   col.obj.destroy();
+   this.p.dy *= -1;
+   Q.stage().trigger('removeBlock');
   }
   
  }
@@ -110,11 +130,9 @@ $(function() {
       });
     },
  destroyed: function() {
-      Q.state.inc("score",100);
+      Q.state.inc("score",10);
  }
   });
-  
-  
   
   Q.Sprite.extend("Block1", {
     init: function(props) {
@@ -129,15 +147,77 @@ $(function() {
       });
     },
  destroyed: function() {
-      Q.state.inc("score",100);
+      Q.state.inc("score",20);
  }
   });
   
+  Q.Sprite.extend("Block2", {
+    init: function(props) {
+      this._super(_(props).extend({ 
+  sheet: 'block2'   
+   }));
+      this.on('collision',function(ball) { 
+        
+  this.destroy();
+        ball.p.dy *= -1;
+        Q.stage().trigger('removeBlock');
+      });
+    },
+ destroyed: function() {
+      Q.state.inc("score",30);
+ }
+  });
   
+  Q.Sprite.extend("Block3", {
+    init: function(props) {
+      this._super(_(props).extend({ 
+  sheet: 'block3'   
+   }));
+      this.on('collision',function(ball) { 
+        
+  this.destroy();
+        ball.p.dy *= -1;
+        Q.stage().trigger('removeBlock');
+      });
+    },
+ destroyed: function() {
+      Q.state.inc("score",30);
+ }
+  });
   
+  Q.Sprite.extend("Block4", {
+    init: function(props) {
+      this._super(_(props).extend({ 
+  sheet: 'block4'   
+   }));
+      this.on('collision',function(ball) { 
+        
+  this.destroy();
+        ball.p.dy *= -1;
+        Q.stage().trigger('removeBlock');
+      });
+    },
+ destroyed: function() {
+      Q.state.inc("score",50);
+ }
+  });
   
-  
-  
+  Q.Sprite.extend("Block5", {
+    init: function(props) {
+      this._super(_(props).extend({ 
+  sheet: 'block5'   
+   }));
+      this.on('collision',function(ball) { 
+        
+  this.destroy();
+        ball.p.dy *= -1;
+        Q.stage().trigger('removeBlock');
+      });
+    },
+ destroyed: function() {
+      Q.state.inc("score",100);
+ }
+  });
   
    Q.UI.Text.extend("Score",{
     init: function() {
