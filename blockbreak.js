@@ -58,7 +58,7 @@ $(function() {
     p.y += p.dy * p.speed * dt;
 
     if(p.x < this.p.w/2) { 
-   p.x = 0;
+   p.x = this.p.w/2;
    p.dx = 1;
    Q.audio.play('fire.mp3');
     } else if(p.x > Q.width - p.w/2) { 
