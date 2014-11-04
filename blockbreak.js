@@ -351,12 +351,12 @@ $(function() {
  
 
       var blockCount=0;
-      for(var x=0;x<6;x++) {
+      /* for(var x=0;x<6;x++) {
         for(var y=0;y<5;y++) {
           stage.insert(new Q.Block1({ x: x*50+35, y: y*30+10 }));
           blockCount++;
         }
-      }
+      } */
 	  /////////////new block laying for loops
 	  for(var y=0;y<5;y++) {
           stage.insert(new Q.Block1({ x: 85, y: y*30+10 }));
