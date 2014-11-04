@@ -33,7 +33,7 @@ $(function() {
       } else if(this.p.x > Q.width - this.p.w) { 
         this.p.x = Q.width - this.p.w;
       }
-//      this._super(dt);	      // no need for this call anymore
+//      this._super(dt);       // no need for this call anymore
     }
   });
 
@@ -47,52 +47,51 @@ $(function() {
       });
       this.p.y = Q.height / 2 - this.p.h;
       this.p.x = Q.width / 2 + this.p.w / 2;
-	  
-	  this.on('hit', this, 'collision');  // Listen for hit event and call the collision method
-	  
-	  this.on('step', function(dt) {      // On every step, call this anonymous function
-		  var p = this.p;
-		  Q.stage().collide(this);   // tell stage to run collisions on this sprite
+   
+   this.on('hit', this, 'collision');  // Listen for hit event and call the collision method
+   
+   this.on('step', function(dt) {      // On every step, call this anonymous function
+    var p = this.p;
+    Q.stage().collide(this);   // tell stage to run collisions on this sprite
 
-		  p.x += p.dx * p.speed * dt;
-		  p.y += p.dy * p.speed * dt;
+    p.x += p.dx * p.speed * dt;
+    p.y += p.dy * p.speed * dt;
 
-		  if(p.x < 0) { 
-			p.x = 0;
-			p.dx = 1;
-			Q.audio.play('hit.mp3');
-		  } else if(p.x > Q.width - p.w) { 
-			p.dx = -1;
-			p.x = Q.width - p.w;
-			Q.audio.play('hit.mp3');
-		  }
+    if(p.x < 0) { 
+   p.x = 0;
+   p.dx = 1;
+   Q.audio.play('fire.mp3');
+    } else if(p.x > Q.width - p.w) { 
+   p.dx = -1;
+   p.x = Q.width - p.w;
+   Q.audio.play('fire.mp3');
+    }
 
-		  if(p.y < 0) {
-			p.y = 0;
-			p.dy = 1;
-		  } else if(p.y > Q.height) 
-		  { 
-			//logic to test how many lives are left, then select lose scene or drop a ball
-			Q.stageScene('lose');
-		  }
-	  });
+    if(p.y < 0) {
+   p.y = 0;
+   p.dy = 1;
+    } else if(p.y > Q.height) {
+   //see if all lives are lost, keep track of how many are lost here, if no more lose, otherwise drop ball    
+   Q.stageScene('lose');
+    }
+   });
     },
-	
-	collision: function(col) {                // collision method
-		if (col.obj.isA("Paddle")) {
-//			alert("collision with paddle");
-			Q.audio.play('fire.mp3');
-			this.p.dy = -1;
-		} else if (col.obj.isA("Block")) {
-//			alert("collision with block");
-			col.obj.destroy();
-			this.p.dy *= -1;
-			Q.stage().trigger('removeBlock');
-		}
-	}
+ 
+ collision: function(col) {                // collision method
+  if (col.obj.isA("Paddle")) {
+//   alert("collision with paddle");
+   Q.audio.play('jump.mp3');
+   this.p.dy = -1;
+  } else if (col.obj.isA("Block")) {
+//   alert("collision with block");
+   col.obj.destroy();
+   this.p.dy *= -1;
+   Q.stage().trigger('removeBlock');
+  }
+ }
   });
 
- Q.Sprite.extend("Block", {
+  Q.Sprite.extend("Block", {
     init: function(props) {
       this._super(_(props).extend({ 
   sheet: 'block'   
@@ -111,12 +110,12 @@ $(function() {
  }
   });
   
-  Q.UI.Text.extend("Score",{
+   Q.UI.Text.extend("Score",{
     init: function() {
       this._super({
         label: "score: 0",
         align: "left",
-		color: "white",
+  color: "white",
         x: 50,
         y: Q.height - 10,
         weight: "normal",
@@ -131,13 +130,25 @@ $(function() {
     }
   });
   
-  //Q.Sprite.extend golden block
+ 
 
- Q.load(['blockbreak.png','fire.mp3','hit.mp3','heart.mp3' ], function() { 
+//  Q.load(['blockbreak.png','blockbreak.json'], function() {
+  Q.load(['blockbreak.png', 'fire.mp3', 'jump.mp3', 'coin.mp3'], function() {
+    // Q.compileSheets('blockbreak.png','blockbreak.json');  
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
  Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
+ //Q.sheet("block1", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 40 });
+ //Q.sheet("block2", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 80 });
+ //Q.sheet("block3", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 120 });
+ //Q.sheet("block4", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 160 });
+ //Q.sheet("block5", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 200 });
  Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });      
- Q.scene('win',new Q.Scene(function(stage) {
+ Q.scene('hud',function(stage) {
+  stage.insert(new Q.Score());
+  //stage.insert(new Q.Lives());
+  //stage.insert(new Q.Level());
+ }, { stage: 1 });
+    Q.scene('win',new Q.Scene(function(stage) {
   var container = stage.insert(new Q.UI.Container({
   fill: "black",
   border: 5,
@@ -145,8 +156,8 @@ $(function() {
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: "Think you're \n pretty special,\n don't you?",
-  color: "blue",
+  label: "You Win!!!!!",
+  color: "white",
   x: 5,
   y: 20 }),container);
    
@@ -156,12 +167,12 @@ $(function() {
   label: "Play Again",
   y: 200,
   x: Q.width/2,
-  fill: "blue",
+  fill: "white",
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
   Q.clearStages();
-  Q.stageScene('game');
+  Q.stageScene('start');
       }));
  
  }));
@@ -173,8 +184,8 @@ $(function() {
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: "you coulda had a V8",
-  color: "blue",
+  label: "You Lose!!!!!",
+  color: "white",
   x: 5,
   y: 20 }),container);
    
@@ -184,12 +195,12 @@ $(function() {
   label: "Play Again",
   y: 200,
   x: Q.width/2,
-  fill: "blue",
+  fill: "white",
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
   Q.clearStages();
-  Q.stageScene('game');
+  Q.stageScene('start');
       }));
  
  }));
@@ -201,8 +212,8 @@ $(function() {
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: " BLOCK BREAKER \n  David Hunsicker \n Directions: Use the left \n and  right arrow keys \n to move the paddle.",
-  color: "white",
+  label: " BLOCK BREAKER \n David Hunsicker \n Directions: Use the left \n and  right arrow keys \n to move the paddle.",
+  color: "blue",
   x: 5,
   y: 20 }),container);
    
@@ -212,50 +223,41 @@ $(function() {
   label: "Play Block Breaker",
   y: 200,
   x: Q.width/2,
-  fill: "white",
+  fill: "blue",
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
-
-  Q.stageScene('game');
-  //Q.stageScene('hud');
+   Q.reset({ score: 0, lives: 3 });
+   Q.stageScene('game');
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
-	  Q.reset({ score: 0, lives: 3, level: 1});
-	Q.stageScene("hud");
- 
-      stage.insert(new Q.Paddle());
+      Q.state.reset({ score: 0, lives: 3, level: 1 });
+    
+    // Add the hud in 
+   Q.stageScene("hud"); 
+   stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
-	
-	
-		
+ //  Q.stageScene('hud',3, Q('Block'));
+
       var blockCount=0;
       for(var x=0;x<6;x++) {
         for(var y=0;y<5;y++) {
-          stage.insert(new Q.Block({ x: x*50+35, y: y*30+45 }));
+          stage.insert(new Q.Block({ x: x*50+35, y: y*30+10 }));
           blockCount++;
         }
       }
       stage.on('removeBlock',function() {
         blockCount--;
-  Q.audio.play('heart.mp3');
+  Q.audio.play('coin.mp3');
         if(blockCount == 0) {
           Q.stageScene('win');
         }
       });
-		
-    }));
- Q.scene('hud',function(stage) {
-  stage.insert(new Q.Score());
-  //stage.insert(new Q.Lives());
- }, { stage: 1 });
-
-
-
-
-
-
-   Q.stageScene('start');//start the game
-  });
+ 
+   }));
+ 
+    Q.stageScene('start');
+ 
+  });  
 });
