@@ -70,7 +70,9 @@ $(function() {
 		  if(p.y < 0) {
 			p.y = 0;
 			p.dy = 1;
-		  } else if(p.y > Q.height) { 
+		  } else if(p.y > Q.height) 
+		  { 
+			//logic to test how many lives are left, then select lose scene or drop a ball
 			Q.stageScene('lose');
 		  }
 	  });
@@ -95,12 +97,15 @@ $(function() {
       this._super(_(props).extend({ sheet: 'block'}));
       this.on('collision',function(ball) { 
         this.destroy();
+		//increase score by 10
+		Q.state.inc("score", 10);
+		
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');
       });
     }
   });
-
+//Q.Sprite.extend golden block
 
  Q.load(['blockbreak.png','fire.mp3','hit.mp3','heart.mp3' ], function() { 
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
@@ -185,16 +190,16 @@ $(function() {
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
+  Q.reset({ score: 0, lives: 3});
   Q.stageScene('game');
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
-Q.reset({ score: 0, lives: 3});
 
- //stage teh hud scene
+
+ 
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
-	  Q.reset({ score: 0, lives: 2 });
 		///////////////////////experimental code here
 		
 		var scoreboard = stage.insert(new Q.UI.Container
@@ -229,6 +234,18 @@ Q.reset({ score: 0, lives: 3});
       });
 		
     }));
-    Q.stageScene('start');
+   
+Q.scene("hud",function(stage) {
+    stage.insert(new Q.Score());
+    stage.insert(new Q.Lives());
+    
+  });
+
+
+
+
+
+
+   Q.stageScene('start');//start the game
   });
 });
