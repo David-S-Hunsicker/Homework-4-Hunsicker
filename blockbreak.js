@@ -221,9 +221,12 @@ $(function() {
 		//update teh score
 		Q.state.on("change.score", function()
 		{
-		var points = Q.state.score;
-		label: points, color: "white", x: 80, y:10
-		
+		var points = stage.insert(new Q.UI.Text
+			({
+			var score = Q.state.score;
+			label: score, color: "white", x: 80, y:10
+			
+			}),scoreboard;
 		});
 		
 		//scoreboard.fit(Q.width, 20);
