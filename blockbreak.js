@@ -196,10 +196,7 @@ $(function() {
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
-//////////////////
-	stage.insert(new Q.Score());
-	stage.insert(new Q.Lives());
-/////////hud stuff 
+ 
  
  
       stage.insert(new Q.Paddle());
@@ -210,15 +207,24 @@ $(function() {
 			({
 				fill: "gray", border: 3, x: 20, y:0
 			}));
+		//on score.incease
 		stage.insert(new Q.UI.Text
 			({
 				label:"Score:", color:"white", x:20, y:10
 			}), scoreboard);
 			
-		var points = stage.insert(new Q.UI.Text
+		/* var points = stage.insert(new Q.UI.Text
 		({
 			label: "0", color: "white", x: 80, y:10
-		}),scoreboard);
+		}),scoreboard); */
+		
+		//update teh score
+		Q.state.on("change.score", function()
+		{
+		var points = Q.state.score;
+		label: points, color: "white", x: 80, y:10
+		
+		});
 		
 		//scoreboard.fit(Q.width, 20);
 		///////////////////
@@ -238,6 +244,9 @@ $(function() {
       });
 		
     }));
+   
+   
+   
    
 Q.scene("hud",function(stage) {
     stage.insert(new Q.Score());
