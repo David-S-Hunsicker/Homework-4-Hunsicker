@@ -191,13 +191,16 @@ $(function() {
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
   Q.reset({ score: 0, lives: 3});
- // Q.stageScene('game');
-  Q.stageScene('hud');
+  Q.stageScene('game');
+  //Q.stageScene('hud');
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
-
-
+//////////////////
+	stage.insert(new Q.Score());
+	stage.insert(new Q.Lives());
+/////////hud stuff 
+ 
  
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
