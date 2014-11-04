@@ -247,10 +247,10 @@ $(function() {
  Q.sheet("ball", "blockbreak.png", { tilew: 20, tileh: 18, sy: 0, sx: 0 });
  Q.sheet("block", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 0 });
  Q.sheet("block1", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 40 });
- //Q.sheet("block2", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 80 });
- //Q.sheet("block3", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 120 });
- //Q.sheet("block4", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 160 });
- //Q.sheet("block5", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 200 });
+ Q.sheet("block2", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 80 });
+ Q.sheet("block3", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 120 });
+ Q.sheet("block4", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 160 });
+ Q.sheet("block5", "blockbreak.png", { tilew: 40, tileh: 18, sy: 20, sx: 200 });
  Q.sheet("paddle", "blockbreak.png", { tilew: 60, tileh: 20, sy: 40, sx: 0 });    
  
  Q.scene('hud',function(stage) {
@@ -357,6 +357,18 @@ $(function() {
           blockCount++;
         }
       }
+	  /////////////new block laying for loops
+	  for(var y=0;y<5;y++) {
+          stage.insert(new Q.Block1({ x: 85, y: y*30+10 }));
+          blockCount++;
+        } 
+	  for(var y=0;y<5;y++) {
+          stage.insert(new Q.Block1({ x: 2*50+35, y: y*30+10 }));
+          blockCount++;
+        }
+	  
+	  
+	  ////////////////////
       stage.on('removeBlock',function() {
         blockCount--;
   Q.audio.play('heart.mp3');
