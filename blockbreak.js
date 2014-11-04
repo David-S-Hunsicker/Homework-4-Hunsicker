@@ -95,7 +95,7 @@ $(function() {
  Q.Sprite.extend("Block", {
     init: function(props) {
       this._super(_(props).extend({ 
-  sheet: 'Block'   
+  sheet: 'block'   
    }));
       this.on('collision',function(ball) { 
          // Increment the score.
