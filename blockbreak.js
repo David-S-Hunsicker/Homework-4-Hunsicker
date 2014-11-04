@@ -99,7 +99,7 @@ $(function() {
         this.destroy();
 		//increase score by 10
 		Q.state.inc("score", 10);
-		
+		console.log("points have been increased");
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');
       });
@@ -223,7 +223,7 @@ $(function() {
 		{
 		var points = stage.insert(new Q.UI.Text
 			({
-			
+			console.log("points are being updated");
 			label: Q.state("score"), color: "white", x: 80, y:10
 			
 			}),scoreboard);
