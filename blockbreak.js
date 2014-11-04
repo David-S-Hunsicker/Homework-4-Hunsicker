@@ -213,29 +213,29 @@ $(function() {
   border: 5,
   shadow: 10,
   shadowColor: "rgba(0,0,0,0.5)",}, function() {
-  Q.reset({ score: 0, lives: 3});
+
   Q.stageScene('game');
   //Q.stageScene('hud');
       }));
     })); 
  Q.scene('game',new Q.Scene(function(stage) {
-	
- 
+	  Q.reset({ score: 0, lives: 3, level: 1});
+	Q.stageScene("hud");
  
       stage.insert(new Q.Paddle());
       stage.insert(new Q.Ball());
 		///////////////////////experimental code here
 		
-		var scoreboard = stage.insert(new Q.UI.Container
+		/* var scoreboard = stage.insert(new Q.UI.Container
 			({
 				fill: "gray", border: 3, x: 20, y:0
-			}));
+			})); */
 		//on score.incease
-		stage.insert(new Q.UI.Text
+		/* stage.insert(new Q.UI.Text
 			({
 				label:"Score:", color:"white", x:20, y:10
 			}), scoreboard);
-			
+			 */
 		/* var points = stage.insert(new Q.UI.Text
 		({
 			label: "0", color: "white", x: 80, y:10
@@ -274,11 +274,10 @@ $(function() {
    
    
    
-Q.scene("hud",function(stage) {
-    stage.insert(new Q.Score());
-    stage.insert(new Q.Lives());
-    stage.insert(new Q.game());
-  });
+Q.scene("hud",function(stage) 
+{
+    stage.insert(new Q.Score()); 
+}, {stage 1});
 
 
 
