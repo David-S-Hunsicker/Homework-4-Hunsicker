@@ -119,7 +119,7 @@ $(function() {
   x: Q.width/2 }));
    
    stage.insert(new Q.UI.Text({ 
-  label: "Think you're pretty special, dont you?",
+  label: "Think you're \n pretty special,\n don't you?",
   color: "blue",
   x: 5,
   y: 20 }),container);
