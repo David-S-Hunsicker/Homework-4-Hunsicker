@@ -54,7 +54,7 @@ $(function() {
     var p = this.p;
     Q.stage().collide(this);   // tell stage to run collisions on this sprite
 	//an experiement with increasing speed of the ball as time goes on
-	p.speed=(p.speed*1.0005);
+	p.speed=(p.speed+.1);
 	//remove above line if it breaks it
     p.x += p.dx * p.speed * dt;
     p.y += p.dy * p.speed * dt;
