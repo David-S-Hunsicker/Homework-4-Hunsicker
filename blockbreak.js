@@ -49,7 +49,8 @@ $(function() {
       this._super({
         label: "lives: 3",
         align: "left",
-        x: 70,
+		color: "white",
+        x: 150,
         y: Q.height - 10,
         weight: "normal",
         size:18
