@@ -105,8 +105,9 @@ $(function() {
 				if(Q.state.get("lives") == 0) {
 					Q.stageScene("lose");
 				}else{
-	Q.Ball.destroy();
-   this.stage.insert(new Q.Ball());
+    this.p.y = Q.height / 2 - this.p.h;
+    this.p.x = Q.width / 2 + this.p.w / 2;
+    this.stage.insert(new Q.Ball());
     }
 	}
    });
