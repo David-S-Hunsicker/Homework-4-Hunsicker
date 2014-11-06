@@ -2,7 +2,8 @@ $(function() {
   var Q = window.Q = Quintus({audioSupported: [ 'wav','mp3','ogg' ]})
                      .include('Input,Sprites,Scenes,UI,Touch,Audio')
                      .setup().touch().enableSound();
-
+  
+  Q.input.mouseControls();
   Q.input.keyboardControls();
   Q.input.touchControls({ 
             controls:  [ ['left','<' ],[],[],[],['right','>' ] ]
@@ -28,6 +29,7 @@ $(function() {
       } else if(Q.inputs['right']) {
         this.p.x += dt * this.p.speed;
       }
+	  Q.inputs['mouseX'];
       if(this.p.x < this.p.w/2) { 
         this.p.x = this.p.w/2;
       } else if(this.p.x > Q.width - this.p.w/2) { 
