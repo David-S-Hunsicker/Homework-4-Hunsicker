@@ -28,8 +28,9 @@ $(function() {
         this.p.x -= dt * this.p.speed;
       } else if(Q.inputs['right']) {
         this.p.x += dt * this.p.speed;
-      }
-	  this.p.x = Q.inputs['mouseX'];
+      }else{this.p.x = Q.inputs['mouseX'];
+	  }
+	  
       if(this.p.x < this.p.w/2) { 
         this.p.x = this.p.w/2;
       } else if(this.p.x > Q.width - this.p.w/2) { 
