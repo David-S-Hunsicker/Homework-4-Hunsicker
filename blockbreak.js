@@ -29,7 +29,7 @@ $(function() {
       } else if(Q.inputs['right']) {
         this.p.x += dt * this.p.speed;
       }
-	  Q.inputs['mouseX'];
+	  this.p.x = Q.inputs['mouseX'];
       if(this.p.x < this.p.w/2) { 
         this.p.x = this.p.w/2;
       } else if(this.p.x > Q.width - this.p.w/2) { 
