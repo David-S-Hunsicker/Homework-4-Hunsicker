@@ -50,7 +50,7 @@ $(function() {
         label: "lives: 3",
         align: "left",
 		color: "white",
-        x: 150,
+        x: 170,
         y: Q.height - 10,
         weight: "normal",
         size:18
@@ -105,6 +105,7 @@ $(function() {
 				if(Q.state.get("lives") == 0) {
 					Q.stageScene("lose");
 				}else{
+	Q.Ball.destroy();
    this.stage.insert(new Q.Ball());
     }
 	}
