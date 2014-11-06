@@ -81,8 +81,13 @@ $(function() {
    p.dy = 1;
     } else if(p.y > Q.height) {
    //see if all lives are lost, keep track of how many are lost here, if no more lose, otherwise drop ball    
-   Q.stageScene('lose');
+   Q.state.dec("lives",1);
+				if(Q.state.get("lives") == 0) {
+					Q.stageScene("lose");
+				}else{
+   this.stage.insert(new Q.Ball());
     }
+	}
    });
     },
  
@@ -212,18 +217,15 @@ $(function() {
   });
   
   Q.Sprite.extend("Block5", {
-    var blives = 3;
 	init: function(props) {
       this._super(_(props).extend({ 
-  sheet: 'block5'  
+  sheet: 'block5',
+  //hits: 3   
    }));
       this.on('collision',function(ball) { 
-	   blives--;
-	   if (blives < 1){
 		this.destroy();
         ball.p.dy *= -1;
-        Q.stage().trigger('removeBlock');
-		}
+        Q.stage().trigger('removeBlock');		
       });
     },
  destroyed: function() {
@@ -267,7 +269,7 @@ $(function() {
  
  Q.scene('hud',function(stage) {
   stage.insert(new Q.Score());
-  //stage.insert(new Q.Lives());
+  stage.insert(new Q.Lives());
  
  }, { stage: 1 });
     Q.scene('win',new Q.Scene(function(stage) {
