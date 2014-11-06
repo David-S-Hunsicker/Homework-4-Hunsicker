@@ -241,13 +241,16 @@ $(function() {
 	init: function(props) {
       this._super(_(props).extend({ 
   sheet: 'block5',
-  //hits: 3   
+  hits: 3   
    }));
       this.on('collision',function(ball) { 
-		this.destroy();
+		p.hits--
+		if(p.hits<1){
+	this.destroy();
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');		
-      });
+      }
+	  });
     },
  destroyed: function() {
       Q.state.inc("score",100);
