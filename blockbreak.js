@@ -213,14 +213,17 @@ $(function() {
   
   Q.Sprite.extend("Block5", {
     init: function(props) {
+	  var blives = 3;
       this._super(_(props).extend({ 
-  sheet: 'block5'   
+  sheet: 'block5'  
    }));
       this.on('collision',function(ball) { 
-        
-  this.destroy();
+       blives--;
+	   if (blives < 1){
+		this.destroy();
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');
+		}
       });
     },
  destroyed: function() {
