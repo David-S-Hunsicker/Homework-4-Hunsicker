@@ -72,7 +72,7 @@ $(function() {
         dx: 1,
         dy: -1,
       });
-      this.p.y = Q.height / 2 - this.p.h;
+      this.p.y = Q.height * 2/3 - this.p.h;
       this.p.x = Q.width / 2 + this.p.w / 2;
    
    this.on('hit', this, 'collision');  // Listen for hit event and call the collision method
@@ -106,8 +106,6 @@ $(function() {
 				if(Q.state.get("lives") == 0) {
 					Q.stageScene("lose");
 				}else{
-    this.p.y = Q.height *2/3;
-    this.p.x = Q.width / 2 + this.p.w / 2;
     this.stage.insert(new Q.Ball());
     }
 	}
