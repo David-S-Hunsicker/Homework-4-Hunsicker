@@ -44,6 +44,25 @@ $(function() {
     }
   });
 
+   Q.UI.Text.extend("Lives",{
+    init: function() {
+      this._super({
+        label: "lives: 3",
+        align: "left",
+        x: 70,
+        y: Q.height - 10,
+        weight: "normal",
+        size:18
+      });
+
+      Q.state.on("change.lives",this,"lives");
+    },
+
+    lives: function(lives) {
+      this.p.label = "lives: " + lives;
+    }
+  });
+  
   Q.Sprite.extend("Ball", {
     init: function() {
       this._super({
