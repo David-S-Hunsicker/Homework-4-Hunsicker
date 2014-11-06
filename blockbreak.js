@@ -212,13 +212,13 @@ $(function() {
   });
   
   Q.Sprite.extend("Block5", {
-    init: function(props) {
-	  var blives = 3;
+    var blives = 3;
+	init: function(props) {
       this._super(_(props).extend({ 
   sheet: 'block5'  
    }));
       this.on('collision',function(ball) { 
-       blives--;
+	   blives--;
 	   if (blives < 1){
 		this.destroy();
         ball.p.dy *= -1;
