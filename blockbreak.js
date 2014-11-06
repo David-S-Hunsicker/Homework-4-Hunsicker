@@ -244,7 +244,7 @@ $(function() {
   hits: 3   
    }));
       this.on('collision',function(ball) { 
-		p.hits--
+		Q.state.dec("hits",1);
 		if(p.hits<1){
 	this.destroy();
         ball.p.dy *= -1;
