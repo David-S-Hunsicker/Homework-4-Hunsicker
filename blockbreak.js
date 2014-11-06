@@ -245,7 +245,7 @@ $(function() {
    }));
       this.on('collision',function(ball) { 
 		Q.state.dec("hits",1);
-		if(p.hits<1){
+		if(hits<1){
 	this.destroy();
         ball.p.dy *= -1;
         Q.stage().trigger('removeBlock');		
