@@ -24,11 +24,15 @@ $(function() {
     },
 
     step: function(dt) {
+	  
       if(Q.inputs['left']) { 
         this.p.x -= dt * this.p.speed;
+		Q.inputs['mouseX'] = this.p.x;
       } else if(Q.inputs['right']) {
         this.p.x += dt * this.p.speed;
-      }else{this.p.x = Q.inputs['mouseX'];
+		Q.inputs['mouseX'] = this.p.x;
+      }else{
+	  this.p.x = Q.inputs['mouseX'];
 	  }
 	  
       if(this.p.x < this.p.w/2) { 
