@@ -102,6 +102,7 @@ $(function() {
     } else if(p.y > Q.height) {
    //see if all lives are lost, keep track of how many are lost here, if no more lose, otherwise drop ball    
    Q.state.dec("lives",1);
+   this.destroy();
 				if(Q.state.get("lives") == 0) {
 					Q.stageScene("lose");
 				}else{
